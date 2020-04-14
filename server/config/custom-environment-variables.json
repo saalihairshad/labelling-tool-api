@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "poke_jwtPrivateKey",
+  "db": "CrudDB"
+}

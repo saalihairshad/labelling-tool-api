@@ -1,0 +1,6 @@
+{
+  "name": "Annotation App",
+  "pokeApi": "https://pokeapi.co/api/v2/pokemon?offset=0&limit=-1",
+  "jwtPrivateKey": "",
+  "db": "mongodb://localhost/CrudDB"
+}
