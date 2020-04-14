@@ -33,7 +33,6 @@ app.use("/api/tweets", tweets);
 app.use("/api/itunes", itunes);
 app.use("/api/users", users);
 app.use("/api/auth", auth);
-
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
