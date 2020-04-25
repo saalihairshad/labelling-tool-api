@@ -7,13 +7,9 @@ const { Itune } = require("../models/itunes");
 
 // Get Tweets
 router.get("/", async (req, res) => {
-  let collection = await Itune.find({});
-  let annotations = await Itune.find({
-    annotations: { $exists: true }
-  }).count();
+  let collection = await Itune.find({ $and: [req.query] });
 
   const meta = {
-    annotated: annotations,
     total: collection.length
   };
   const data = {
