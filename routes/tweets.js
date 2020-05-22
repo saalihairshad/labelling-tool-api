@@ -5,19 +5,18 @@ const { Tweet } = require("../models/tweet");
 
 // Get Tweets
 router.get("/", async (req, res) => {
-  let tweetsCollection = await Tweet.find({});
-  let annotations = await Tweet.find({
-    annotations: { $exists: true }
-  }).count();
+  let collection = await Tweet.find({ $and: [req.query] }).sort({
+    app_name: 1
+  });
 
   const meta = {
-    annotated: annotations,
-    total: tweetsCollection.length
+    total: collection.length
   };
   const data = {
-    data: tweetsCollection,
+    data: collection,
     meta: meta
   };
+
   res.send(data);
 });
 

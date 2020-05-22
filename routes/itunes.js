@@ -1,11 +1,9 @@
 const express = require("express");
 const mongodb = require("mongodb");
-
 const router = express.Router();
-
 const { Itune } = require("../models/itunes");
 
-// Get Tweets
+// Get Reviews
 router.get("/", async (req, res) => {
   let collection = await Itune.find({ $and: [req.query] });
 
@@ -20,7 +18,7 @@ router.get("/", async (req, res) => {
   res.send(data);
 });
 
-//Get Next Tweet
+//Get Next Review
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
