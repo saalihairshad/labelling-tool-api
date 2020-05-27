@@ -37,7 +37,13 @@ router.patch("/:id", async (req, res, next) => {
   const id = req.params.id;
   let tweet = await Tweet.findOneAndUpdate(
     { _id: new mongodb.ObjectID(id) },
-    { $set: { annotations: req.body } },
+    {
+      $set: {
+        annotations: req.body.annotations,
+        finalAnnotation: req.body.finalAnnotation,
+        isPending: req.body.isPending
+      }
+    },
     { new: true }
   );
   res.send(tweet);
