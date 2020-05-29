@@ -6,7 +6,8 @@ const { Itune } = require("../models/itunes");
 // Get Reviews
 router.get("/", async (req, res) => {
   let collection = await Itune.find({ $and: [req.query] }).sort({
-    AppName: 1
+    AppName: 1,
+    Rating: -1
   });
 
   const meta = {
